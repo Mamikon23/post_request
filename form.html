@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Form</title>
+
+  </head>
+  <body>
+    <header>
+      <h1>Post Request</h1>
+    </header>
+
+    <form action="/form" method="POST">
+      <fieldset>
+        <h3>Add new instance</h3>
+        <label>DoB</label>
+        <input type="text" id="DoB" name="DoB" required />
+        <br /><br />
+        <label>Name</label>
+        <input type="text" id="name" name="name" required />
+        <br /><br />
+
+        <label>Last Name</label>
+        <input type="text" id="lastname" name="lastname" required />
+        <br /><br />
+
+        <label>Gender</label>
+        <input type="text" id="gender" name="gender" required />
+        <br /><br />
+        
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+        <br /><br />
+      
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+
+      </fieldset>
+    </form>
+
+  </body>
+</html>
