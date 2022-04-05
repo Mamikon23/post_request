@@ -15,7 +15,7 @@ const limiter = rateLimit({
 });
 
 var db = new sqlite3.Database('test.db');
-db.run('CREATE TABLE IF NOT EXISTS emp(DoB TEXT, name TEXT, lastname TEXT, gender TEXT )');
+db.run('CREATE TABLE IF NOT EXISTS emp(DoB TEXT, name TEXT, lastname TEXT, gender TEXT, cv PDF, image JPG PNG )');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '.')));
@@ -29,8 +29,8 @@ app.get('/init', function (req, res) {
 app.post('/init', function (req, res) {
   db.serialize(() => {
     db.run(
-      'INSERT INTO emp(DoB, name, lastname, gender, cv, image) VALUES(?,?,?,?)',
-      [req.body.DoB, req.body.name, req.body.lastname, req.body.gender, req.body.cv, req.body.image ],
+      'INSERT INTO emp(DoB, name, lastname, gender) VALUES(?,?,?,?)',
+      [req.body.DoB, req.body.name, req.body.lastname, req.body.gender ],
       function (err) {
         if (err) {
           return console.log(err.message);
@@ -40,9 +40,7 @@ app.post('/init', function (req, res) {
           ' Birthday = ' + req.body.DoB +
           'Name = ' + req.body.name +
           'Last-Name = ' + req.body.lastname +
-          'Gender = ' + req.body.gender + 
-	  'CV = ' + req.body.cv +
-          'Image = ' + req.body
+          'Gender = ' + req.body.gender 
         );
       }
     );
@@ -57,8 +55,8 @@ app.get('/form', function (req, res) {
 app.post('/form', function (req, res) {
     db.serialize(() => {
       db.run(
-        'INSERT INTO emp(DoB, name, lastname, gender, cv, image) VALUES(?,?,?,?,?)',
-        [req.body.DoB, req.body.name, req.body.lastname, req.body.gender, req.body.cv, req.body.image],
+        'INSERT INTO emp(DoB, name, lastname, gender, cv, image ) VALUES(?,?,?,?,?)',
+        [req.body.DoB, req.body.name, req.body.lastname, req.body.gender],
         function (err) {
           if (err) {
             return console.log(err.message);
@@ -69,8 +67,8 @@ app.post('/form', function (req, res) {
             'Name = ' + req.body.name +
             'Last-Name = ' + req.body.lastname +
             'Gender = ' + req.body.gender +
-            'CV = ' + req.body.cv +
-            'Image = ' + req.body
+	    'CV = ' + req.body.gender +
+            'Image = ' + req.body.gender 
           );
         }
       );
