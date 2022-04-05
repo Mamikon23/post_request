@@ -1,0 +1,27 @@
+
+
+	.toast-body{
+		background-color:#228B22;
+		color:white;
+	}
+
+	.form{
+		width:350px;
+		height:350px;
+		border:1px solid black;
+		text-align:center;
+		background-color:lightblue;
+		
+	}
+
+	#lname,#fname,#sb{
+	
+		width:300px;
+		text-align:center;
+		margin-left:20px;
+		
+	}
+	#myCheck{
+		margin-left:20px;
+	}
+

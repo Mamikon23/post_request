@@ -1,0 +1,20 @@
+{
+  "name": "mail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dav": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "smtp-server": "^3.9.0"
+  },
+  "type": "module"
+}

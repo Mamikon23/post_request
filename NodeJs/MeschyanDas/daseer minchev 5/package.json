@@ -1,0 +1,15 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "das1.js",
+  "scripts": {
+    "dev":"nodemon das5.js"
+  },
+  "author": "Khachatur Hokhanyan",
+  "type": "module",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,45 @@
+	<!DOCTYPE html>
+	<html lang="en">
+
+		<head>
+  			<meta charset="utf-8">
+  			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  			<title>Qnnutyun</title>
+			<style>
+				#demo{
+					color:red;
+				}
+			</style>
+		</head>
+		<body>
+
+			<h1 id="demo"></h1>
+			<form action = "form" method = "post">
+				<button id = "btn">Click me</button>
+			</form>
+			<script>
+				/*
+				fetch("http://127.0.0.1:8000").then((res) => res.text()).then((data) => {
+					document.getElementById("demo").innerHTML = data
+				});
+			       */
+				const button = document.getElementById('btn');
+	
+				button.addEventListener('click', async _ => {
+  					try {
+    						const response = await fetch('http://127.0.0.1:8000', {
+      							method: 'post',
+      							body: {
+        							document.getElementById("demo").innerHTML = data
+      							}
+    						});
+							console.log('-->', response);
+  					} catch(err) {
+    						console.error(`Error: ${err}`);
+  					}
+				});
+			</script>
+		</body>
+
+	</html>
+

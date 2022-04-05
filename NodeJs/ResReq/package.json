@@ -1,0 +1,16 @@
+{
+  "name": "resreq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ReqREs.js",
+  "scripts": {
+    "dav": "nodemon index.js"
+  },
+  "author": "Khachatur",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "url-parse": "^1.5.4"
+  },
+  "type": "module"
+}

@@ -29,18 +29,20 @@ app.get('/init', function (req, res) {
 app.post('/init', function (req, res) {
   db.serialize(() => {
     db.run(
-      'INSERT INTO emp(DoB, name, lastname, gender) VALUES(?,?,?,?)',
-      [req.body.DoB, req.body.name, req.body.lastname, req.body.gender],
+      'INSERT INTO emp(DoB, name, lastname, gender, cv, image) VALUES(?,?,?,?)',
+      [req.body.DoB, req.body.name, req.body.lastname, req.body.gender, req.body.cv, req.body.image ],
       function (err) {
         if (err) {
           return console.log(err.message);
         }
         console.log('New person has been added');
         res.send(
-          'ID = ' + req.body.DoB +
+          ' Birthday = ' + req.body.DoB +
           'Name = ' + req.body.name +
           'Last-Name = ' + req.body.lastname +
-          'Gender = ' + req.body.gender 
+          'Gender = ' + req.body.gender + 
+	  'CV = ' + req.body.cv +
+          'Image = ' + req.body
         );
       }
     );
@@ -55,18 +57,20 @@ app.get('/form', function (req, res) {
 app.post('/form', function (req, res) {
     db.serialize(() => {
       db.run(
-        'INSERT INTO emp(DoB, name, lastname, gender, image) VALUES(?,?,?,?,?)',
-        [req.body.DoB, req.body.name, req.body.lastname, req.body.gender],
+        'INSERT INTO emp(DoB, name, lastname, gender, cv, image) VALUES(?,?,?,?,?)',
+        [req.body.DoB, req.body.name, req.body.lastname, req.body.gender, req.body.cv, req.body.image],
         function (err) {
           if (err) {
             return console.log(err.message);
           }
           console.log('New person has been added');
           res.send(
-            'ID = ' + req.body.DoB +
+            'Birthday = ' + req.body.DoB +
             'Name = ' + req.body.name +
             'Last-Name = ' + req.body.lastname +
-            'Gender = ' + req.body.gender 
+            'Gender = ' + req.body.gender +
+            'CV = ' + req.body.cv +
+            'Image = ' + req.body
           );
         }
       );

@@ -1,0 +1,13 @@
+{
+  "name": "pahelinfo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pahelinfo.js",
+  "scripts": {
+    "dev": "nodemon pahelInfo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type":"module"
+}
