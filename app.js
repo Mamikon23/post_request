@@ -9,13 +9,8 @@ var rateLimit = require('express-rate-limit');
 var app = express();
 var server = http.createServer(app);
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
-});
-
 var db = new sqlite3.Database('test.db');
-db.run('CREATE TABLE IF NOT EXISTS emp(DoB TEXT, name TEXT, lastname TEXT, gender TEXT, cv PDF, image JPG PNG )');
+db.run('CREATE TABLE IF NOT EXISTS emp(DoB TEXT, name TEXT, lastname TEXT, gender TEXT, cv TEXT, image TEXT )');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '.')));
@@ -31,20 +26,21 @@ app.post('/init', function (req, res) {
     db.run(
       'INSERT INTO emp(DoB, name, lastname, gender) VALUES(?,?,?,?)',
       [req.body.DoB, req.body.name, req.body.lastname, req.body.gender ],
-      function (err) {
+	    function (err) {
         if (err) {
           return console.log(err.message);
-        }
-        console.log('New person has been added');
-        res.send(
-          ' Birthday = ' + req.body.DoB +
-          'Name = ' + req.body.name +
-          'Last-Name = ' + req.body.lastname +
-          'Gender = ' + req.body.gender 
-        );
+       		console.log('New person has been added');
+        	res.send(
+         		' Birthday = ' + req.body.DoB +
+          		'Name = ' + req.body.name +
+          		'Last-Name = ' + req.body.lastname +
+          		'Gender = ' + req.body.gender 
+        	);
+	}
       }
     );
   });
+
 });
 
 app.get('/form', function (req, res) {
