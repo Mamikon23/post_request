@@ -7,15 +7,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>My Form</title>
-
   </head>
-  <body>
+  <body style="background-color:lightblue">
     <header>
-      <h1>Post Request</h1>
+      <h1 style="position:apsolute; margin-left:530px; margin-top:10px; color:Blue;">Post Request</h1>
     </header>
 
     <form action="/form" method="POST">
-      <fieldset>
+	     <fieldset style = "position:apsolut; matrgin-top: 50px; margin-left: 500px;
+                                padding:20px; border:1px solid; width:300px; heiht: 600px;
+				background-color:grey; color:white;">
         <h3>Add new instance</h3>
         <label>DoB</label>
         <input type="date" id="DoB" name="DoB" required />
@@ -36,18 +37,18 @@
                         </select>
                 </div>
                 </br></br>
-
 <!--
         <label>Gender</label>
         <input type="text" id="gender" name="gender" required />
         <br /><br />
--->        
+-->
+
 	<label>CV</label>
-	<input type="file" id="cv" name="cv" accept="application/pdf" required/>  
+	<input type="file" id="cv" name="cv" accept="application/blob" required/>  
         <br /><br />
 
-	<label for="image">Image</label>
-        <input type="file" id="image" name="image" accept="application/png jpeg" >
+	<label>Image</label>
+        <input type="file" id="image" name="image" accept="application/blob" >
         <br /><br />
 
         <button type="reset">Reset</button>

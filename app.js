@@ -10,7 +10,7 @@ var app = express();
 var server = http.createServer(app);
 
 var db = new sqlite3.Database('test.db');
-db.run('CREATE TABLE IF NOT EXISTS emp(DoB TEXT, name TEXT, lastname TEXT, gender TEXT, cv TEXT, image TEXT )');
+db.run('CREATE TABLE IF NOT EXISTS emp(DoB INTEGER, name TEXT, lastname TEXT, gender TEXT, cv BLOB, image BLOB )');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '.')));
@@ -51,7 +51,7 @@ app.get('/form', function (req, res) {
 app.post('/form', function (req, res) {
     db.serialize(() => {
       db.run(
-        'INSERT INTO emp(DoB, name, lastname, gender, cv, image ) VALUES(?,?,?,?,?)',
+        'INSERT INTO emp(DoB, name, lastname, gender, cv, image ) VALUES(?,?,?,?,?,?)',
         [req.body.DoB, req.body.name, req.body.lastname, req.body.gender],
         function (err) {
           if (err) {
